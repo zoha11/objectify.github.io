@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#04024b">
+    <link rel="shortcut icon" href="Img/faveicon.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="Img/logo-192.png">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css" integrity="sha512-9xKTRVabjVeZmc+GUW8GgSmcREDunMM+Dt/GrzchfN8tkwHizc5RP4Ok/MXFFy5rIjJjzhndFScTceq5e6GvVQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet"> 
+    
+    <title>Objectify</title>
+</head>
+<body class="bg-body-tertiary">
+  <!-- navbar setting -->
+  <nav class="navbar navbar-dark navbar-expand-lg" >
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="Img/logo.png" alt="Logo" width="45" height="45" class="d-inline-block align-text-top">
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link text-white active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="pages/documentation.html">Documantation</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#">Service List</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="pages/contactUs.html">Contact Us</a>
+            </li>
+          </ul>
+          <button type="button" class="btn btn-sm bg-transparent border-white text-white" onclick="location.href='pages/signIn.html'" >Create An Account</button> 
+        </div>
+      </div>
+  </nav>
+  <!-- start snapshot image  -->
+  <div class="container text-center my-3 py-4 rounded-2 shadow-sm bg-white">
+    <h2 class="text-center mb-4">Object Detection</h2>
+    <div class="row g-2">
+      <!-- Camera Preview Section -->
+      <div class="col-lg-8">
+        <div class="camera-preview border rounded d-flex align-items-center justify-content-center progress-bar-striped">
+          <video id="video" class="m-2" autoplay></video>
+        </div>
+        <div class="mt-3 d-flex flex-row align-items-start camera-btn ">
+          <button class="btn btn-primary btn-sm mx-1" id="startButton">Start</button>
+          <button class="btn btn-outline-primary btn-sm mx-1" >Upload</button>
+          <button class="btn btn-outline-primary btn-sm mx-1" id="stopButton">Detect</button>
+        </div>
+      </div>
+      
+      <!-- Detection Results Section -->
+      <div class="col-lg-4">
+        <div class="detection-results border rounded p-3">
+          <h5 class="text-muted mb-3">Detection Results</h5>
+          <div class="result-item rounded p-3 mb-2 bg-light"></div>
+          <div class="result-item rounded p-3 mb-2 bg-light"></div>
+          <div class="result-item rounded p-3 mb-2 bg-light"></div>
+          <div class="result-item rounded p-3 mb-2 bg-light"></div>
+        </div>
+      </div>
+    </div>
+  </div>      
+  <!-- recently detected objects -->
+  <div class="container text-center my-3 py-4 rounded-2 shadow-sm bg-white">
+    <h2 class="text-center mb-4">recently detected items</h2>
+    <div class="row g-2 mt-1">
+      <div class="col-md-3">
+        <div class="card border">
+          <img src="Img/object-3.jpg" class="card-img-top img-fluid fixed-image" alt="Coffee Shop">
+          <div class="card-body text-start">
+            <h5 class="card-title">Coffee Shop</h5>
+            <p class="card-text text-secondary">Delicate eyewear resting on a polished café surface, capturing the ambiance of a casual morning break. Sunlight glints off the glass frames, reflecting the laid-back atmosphere of the coffee shop.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card border">
+          <img src="Img/object-1.jpg" class="card-img-top img-fluid fixed-image" alt="Privete Room">
+          <div class="card-body text-start">
+            <h5 class="card-title">Privete Room</h5>
+            <p class="card-text text-secondary">A workspace defined by essential tools of productivity - a laptop surrounded by carefully placed bags and accessories. The desk reflects a personal academic or professional environment.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card border">
+          <img src="Img/object-2.png" class="card-img-top img-fluid fixed-image" alt="Outside">
+          <div class="card-body text-start">
+            <h5 class="card-title">Outside</h5>
+            <p class="card-text text-secondary">A pair of energetic canines positioned near a sleek bicycle, embodying urban mobility and companionship. The scene suggests a moment of pause during a walk or outdoor adventure.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card border">
+          <img src="Img/object-4.jpg" class="card-img-top img-fluid fixed-image" alt="Resturant">
+          <div class="card-body text-start">
+            <h5 class="card-title">Resturant</h5>
+            <p class="card-text text-secondary">A culinary professional in full concentration, moving with practiced precision in a bustling kitchen environment. The chef's focused stance and professional attire convey the intensity and artistry of cooking.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   
+  <!-- Footer -->
+  <footer class="container-fluid p-4 pb-0 mt-5">
+    <div class="container">
+      <div class="row d-flex justify-content-between align-items-start flex-wrap text-light">
+          <div class="col-sm p-1">
+            <h6 class="mb-3">Objectify</h6>
+            <p class="small">An object detection app designed to aid language learners and individuals with disabilities. Identify objects, add notes, and learn with ease!</p>  
+            <div class="socialMedia mt-3">
+              <i class="fa-brands fa-square-facebook fa-xl px-1 lh-sm"></i>
+              <i class="fa-brands fa-linkedin fa-xl px-1 lh-sm"></i>
+              <i class="fa-brands fa-square-whatsapp fa-xl px-1 lh-sm"></i>
+              <i class="fa-brands fa-square-x-twitter fa-xl px-1 lh-sm"></i>
+            </div>
+          </div>
+          <div class="col-sm p-1"> 
+            <h6 class="mb-3">Office</h6>
+            <p class="mb-0 small">Altenberger Straße 69</p>
+            <p class="mb-0 small">4040 Linz, Austria</p>
+            <p class="mb-0 small">company@Objectify.at</p>
+            <p class="small">+43- 1234567890</p>
+          </div>
+          <div class="col-sm p-1"> 
+            <h6 class="mb-3">Links</h6>
+            <ul class="p-0">
+              <li class="list-style-none"><a class="text-light small" href="#">Home</a></li>
+              <li class="list-style-none"><a class="text-light small" href="#">Documantation</a></li>
+              <li class="list-style-none"><a class="text-light small" href="#">Srvice List</a></li>
+              <li class="list-style-none"><a class="text-light small" href="#">Contact Us</a></li>
+            </ul>
+          </div>
+          <div class="col-sm p-1"> 
+            <h6 class="mb-3">News Letter</h6>
+            <form>
+              <div class="input-group flex-nowrap border-bottom">
+                <span class="input-group-text bg-transparent border-0" id="addon-wrapping"><i class="fa-regular fa-envelope"></i></span>
+                <input type="text" class="form-control bg-transparent text-light border-0" placeholder="enter your email address" aria-label="Username" aria-describedby="addon-wrapping">
+              </div>
+              <button type="submit" class="btn btn-sm mt-2 border-white bg-transparent text-light">Registration</button>
+            </form>
+            <!-- <img class="footer-logo mb-3" src="Img/logo.png" alt="logo"> -->
+          </div>
+      </div>      
+    </div>  
+    <div class="border-top border-secondary mt-2">
+      <p class="text-center mb-0 py-1 text-secondary small"> 	&copy; 2024 Objectify.com </p>
+    </div>
+  </footer>
+  <script src="js/script.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', async () => {
+            try {
+                await navigator.serviceWorker.register('js/sw.js'); // Correct registration
+                console.log('Service Worker registered successfully');
+            } catch (error) {
+                console.error('Service Worker registration failed:', error);
+            }
+        });
+    }
+</script>
+</body>
+</html>

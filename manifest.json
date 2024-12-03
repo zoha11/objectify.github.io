@@ -1,0 +1,38 @@
+{
+    
+    "name": "Object Detection",
+    "short_name": "Objectify",
+    "id": "./",  
+    "start_url": "./",
+    "display": "standalone",
+    "scope": "./",
+    "theme_color": "#04024b",
+    "background_color": "#04024b",
+    "description": "Object detection application",
+    "icons": [
+      {
+        "src": "Img/logo-512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      },
+      {
+        "src": "Img/logo-192.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      }
+    ],
+    "screenshots": [
+      {
+        "src": "/Img/logo-540.png",
+        "type": "image/png",
+        "sizes": "540x720",
+        "form_factor": "narrow"
+      },
+      {
+        "src": "/Img/logo-720.png",
+        "type": "image/png",
+        "sizes": "720x540",
+        "form_factor": "wide"
+      }
+    ]
+  }
